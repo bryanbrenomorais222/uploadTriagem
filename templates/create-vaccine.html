@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block middle-content %}
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>CROSS</h3>
+                <p class="text-subtitle text-muted">Classificação de Risco Online em Sistemas de Saúde</p>
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Principal</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Cadastrar Imunizantes</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <section id="multiple-column-form">
+        <div class="row match-height">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title fs-3">Cadastrar Imunizantes</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <form method="POST" class="form">
+                                {% csrf_token %}
+                                <div class="row">
+
+
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group mb-4">
+                                            <label for="{{ form.establishment.id }}">Estabelecimento</label>
+                                            <input class="form-control" id="inputEstablishment" placeholder="Estabelecimento" {{ form.establishment}}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2 col-12">
+                                        <div class="form-group mb-4">
+                                            <label for="{{ form.dateofArrival.id }}">Data de Chegada</label>
+                                            <input type="date" class="form-control" id="inputDateArrival" placeholder="Data" {{ form.dateofArrival }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group mb-4">
+                                            <label for="{{ form.immunobiological.id }}">Imunobiológico</label>
+                                            <input class="form-control" id="inputImmunobiological" placeholder="Imunobiológico" {{ form.immunobiological}}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 col-12">
+                                        <div class="form-group mb-4">
+                                            <label for="{{ form.manufacturer.id }}">Fabricante</label>
+                                            <input class="form-control" id="inputManufacturer" placeholder="Fabricante" {{ form.manufacturer}}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2 col-12">
+                                        <div class="form-group mb-4">
+                                            <label for="{{ form.dosage.id }}">Dosagem</label>
+                                            <input class="form-control" id="inputDosage" placeholder="Dosagem" {{ form.dosage}}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 col-12">
+                                        <div class="form-group mb-4">
+                                            <label for="{{ form.load.id }}">Lote</label>
+                                            <input class="form-control" id="inputLoad" placeholder="Lote" {{ form.load}}
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-4 col-12">
+                                        <div class="form-group mb-4">
+                                            <label for="{{ form.quantity.id }}">Quantidade de Doses</label>
+                                            <input class="form-control" id="inputQuantity" placeholder="Quantidade Doses" {{ form.quantity}}
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-2 col-12">
+                                        <div class="form-group mb-4">
+                                            <label for="{{ form.validity_period.id }}">Validade</label>
+                                            <input type="date" class="form-control" id="inputValidityPeriod" placeholder="Validade" {{ form.validity_period}}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <button type="submit" id="botao" class="btn icon icon-left btn-primary me-1 mb-1">Cadastrar Imunizante</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(
+        function(){
+           
+        }
+    );
+</script>
+{% endblock middle-content %}

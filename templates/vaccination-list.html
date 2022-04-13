@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block middle-content %}
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>CROSS</h3>
+                <p class="text-subtitle text-muted">Classificação de Risco Online em Sistemas de Saúde</p>
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Principal</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Lista de Vacinação</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <section class="section">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header p-1">
+
+                    <div class="d-flex flex-row justify-content-between">
+                        <div class="w-50">
+                            <h2 class="card-title fs-3">Lista de Vacinação</h2>
+                            <form method="GET" id="search-form" class="input-group mt-3">
+                                <input type="text" name="search" class="form-control" placeholder="Vacinação" value="{{ request.GET.search }}">
+                                <span class="input-group-text" id="icon-wrapping">
+                                    <i class="bi bi-search"></i>
+                                </span>
+                            </form>
+                        </div>
+                        <div class="align-self-end">
+                            <a class="btn icon icon-left btn-primary d-flex flex-row align-items-center" href="{% url 'main:create-vaccination' %}">
+                                <span>Cadastro de Vacinação</span>
+                                &nbsp;
+                                <i class="bi bi-plus-circle"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <ul class="nav d-flex justify-content-start ms-3 mt-5 fs-6">
+                        <li class="nav-item flex-grow-1 fw-bold me-5">Paciente</li>
+                        <li class="nav-item flex-grow-1 fw-bold me-5">Enfermeiro(a)</li>
+                        <li class="nav-item flex-grow-1 fw-bold me-5">Imunizante</li>
+                        <li class="nav-item flex-grow-1 fw-bold me-5">Dose</li>
+                    </ul>
+
+                    <ul class="list-group list-group-flush">
+                        {% for vaccination in vaccinations %}
+                        <li class="d-flex bd-highlight list-group-item pb-0">
+                            <ul class="nav align-items-center flex-grow-1">
+                                <li class="nav-item flex-grow-1">{{ vaccination.patient_name  }}</li>
+                                <li class="nav-item flex-grow-1">{{ vaccination.nurse_name }}</li>
+                                <li class="nav-item flex-grow-1">{{ vaccination.immunobiological_type }}</li>
+                                <li class="nav-item flex-grow-1">{{ vaccination.dose }}</li>
+                            </ul>
+
+
+                            <div class="p-2 bd-highlight">
+                                <div class="p-2 bd-highlight">
+                                    <a href="{% url 'main:update-vaccination' pk=vaccination.id %}">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a>
+
+                                    <a href="{% url 'main:delete-vaccination' pk=vaccination.id %}">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+
+                                </div>
+                            </div>
+
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <ul class="pagination pagination-primary justify-content-end mb-0 mt-4">
+                    {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+                    </li>
+                    {% endif %}
+
+                    <li class="page-item">
+                        <a class="page-link" href="#">Página {{ page_obj.number }}</a>
+                    </li>  
+
+                    {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Próxima</a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock middle-content %}

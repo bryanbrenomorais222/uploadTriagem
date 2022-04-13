@@ -1,0 +1,128 @@
+{% load static %}
+<div id="sidebar" class="active">
+    <div class="sidebar-wrapper active">
+        <div class="sidebar-header">
+            <div class="d-flex justify-content-between">
+                <div class="logo">
+                    <a href="/"><img src="{% static 'img/logo.png' %}" alt="Logo" srcset=""></a>
+                </div>
+                <div class="toggler">
+                    <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-menu">
+            <ul class="menu">
+                <li class="sidebar-title">Menu Principal</li>
+
+                <li class="sidebar-item  ">
+                    <a href="/dashboard/" class='sidebar-link'>
+                        <i class="bi bi-grid-fill"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-title">Cadastros</li>
+
+                <li class="sidebar-item  ">
+                    <a href="/patient-list/" class='sidebar-link'>
+                        <i class="bi bi-person-plus"></i>
+                        <span>Paciente</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                    <a href="/doctor-list/" class="sidebar-link">
+                        <i class="bi bi-person-plus"></i>
+                        <span>Médico(a)</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                    <a href="/nurse-list/" class="sidebar-link">
+                        <i class="bi bi-person-plus"></i>
+                        <span>Enfermeiro(a)</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                    <a href="/vaccine-list/" class="sidebar-link">
+                        <span>Cadastro Vacina</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                    <a href="/vaccination-list/" class="sidebar-link">
+                        <span>Vacinação</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-title">Atendimentos</li>
+
+                <li class="sidebar-item  ">
+                    <a href="/appointment-list-doctor/" class='sidebar-link'>
+                        <i class="bi bi-person-plus"></i>
+                        <span>Médico</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                    <a href="/appointment-list-nurse/" class="sidebar-link">
+                        <i class="bi bi-person-plus"></i>
+                        <span>Enfermagem</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                    <a href="/appointment-list-nurse/" class="sidebar-link">
+                        <i class="bi bi-person-plus"></i>
+                        <span>Técnico em enfermagem</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-title">Classificação de Risco</li>
+
+                <li class="sidebar-item  ">
+                    <a href="/waiting-list/" class='sidebar-link'>
+                        <i class="bi bi-clock"></i>
+                        <span>Lista de Espera</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                    <a href="/screening/" class='sidebar-link'>
+                        <i class="bi bi-sort-down"></i>
+                        <span>Triagem</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-title">Relatórios</li>
+
+                <li class="sidebar-item  ">
+                    <a href="/service-report/" class='sidebar-link'>
+                        <i class="bi bi-clipboard-data"></i>
+                        <span>Atendimentos</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-title">Configurações</li>
+
+                <li class="sidebar-item  ">
+                    <a href="/admin/core/" class='sidebar-link'>
+                        <i class="bi bi-sliders"></i>
+                        <span>Parâmetros</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                    <a href="/admin/rules/" class='sidebar-link'>
+                        <i class="bi bi-diagram-3"></i>
+                        <span>Regras</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+    </div>
+</div>

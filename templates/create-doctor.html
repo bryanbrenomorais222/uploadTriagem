@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+{% block middle-content %}
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>CROSS</h3>
+                <p class="text-subtitle text-muted">Classificação de Risco Online em Sistemas de Saúde</p>
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Principal</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Cadastro de Médicos(as)</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <section class="section">
+        <div class="card p-2">
+            <div class="card-header mb-4">
+                <h4 class="card-title fs-3">Cadastrar médico(a)</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST" class="form">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="form-group col-md-12 col-12"> 
+                            {{ form.full_name.label }}
+                            <input class="form-control" name="{{ form.full_name.html_name }}" id="full-name" placeholder="Nome completo" {{ form.full_name }}
+                        </div>
+
+                        <div class="form-group col-md-12 col-12"> 
+                            {{ form.crm.label }}
+                            <input class="form-control" name="{{ form.crm.html_name }}" id="crm" placeholder="CRM" {{ form.crm }}
+                        </div>
+
+                        <div class="form-group col-md-6 col-12"> 
+                            {{ form.specialty.label }}
+                            <input class="form-control" name="{{ form.specialty.html_name }}" id="specialty" placeholder="Especialidade" {{ form.specialty }}
+                        </div>
+
+                        <div class="form-group col-md-6 col-12"> 
+                            {{ form.occupation_area.label }}
+                            <input class="form-control" name="{{ form.occupation_area.html_name }}" id="occupation-area" placeholder="Área de atuação" {{ form.occupation_area }}
+                        </div>
+
+                        <div class="form-group col-md-12 col-12">
+                            {{ form.status.label }}
+                            <select class="form-select" name="{{ form.status.html_name }}" id="status" {{ form.status }}</select>
+                        </div>
+
+                        <div class="form-group col-md-12 col-12">
+                            {{ form.civil_status.label }}
+                            <select class="form-select" name="{{ form.civil_status.html_name }}" id="civil-status" {{ form.civil_status }}</select>
+                        </div>
+
+                        <div class="form-group col-md-6 col-12">
+                            {{ form.sex.label }}
+                            <select class="form-select" name="{{ form.sex.html_name }}" id="sex" {{ form.sex }}</select>
+                        </div>
+
+                        <div class="form-group col-md-6 col-12">
+                            {{ form.gender.label }}
+                            <select class="form-select" name="{{ form.gender.html_name }}" id="gender" {{ form.gender }}</select>
+                        </div>
+
+                        <div class="form-group col-md-3 col-12">
+                            {{ form.cpf.label }}
+                            <input class="form-control" name="{{ form.cpf.html_name }}" id="cpf" placeholder="CPF" {{ form.cpf }}
+                        </div>
+
+                        <div class="form-group col-md-3 col-12">
+                            {{ form.rg.label }}
+                            <input class="form-control" name="{{ form.rg.html_name }}" id="rg" placeholder="RG" {{ form.rg }}
+                        </div>
+
+                        <div class="form-group col-md-3 col-12">
+                            {{ form.issuing_agency.label }}
+                            <input class="form-control" name="{{ form.issuing_agency.html_name }}" id="issuing-agency" placeholder="Órgão de expedição" {{ form.issuing_agency }}
+                        </div>
+
+                        <div class="form-group col-md-3 col-12">
+                            {{ form.issuing_date.label }}
+                            <input type="date" class="form-control" name="{{ form.issuing_date.html_name }}" id="issuing-date" placeholder="Data de Expedição" {{ form.issuing_date }}
+                        </div>
+
+                        <div class="form-group col-md-12 col-12">
+                            {{ form.place_of_birth.label }}
+                            <input class="form-control" name="{{ form.place_of_birth.html_name }}" id="place-of-birth" placeholder="Naturalidade" {{ form.place_of_birth }}
+                        </div>
+
+                        <div class="form-group col-md-12 col-12">
+                            {{ form.date_of_birth.label }}
+                            <input type="date" class="form-control" name="{{ form.date_of_birth.html_name }}" id="date-of-birth" placeholder="Data de nascimento" {{ form.date_of_birth }}
+                        </div>
+
+                        <div class="form-group col-md-6 col-12">
+                            {{ form.cell_number.label }}
+                            <input class="form-control" name="{{ form.cell_number.html_name }}" id="cell-number" placeholder="Telefone celular" {{ form.cell_number }}
+                        </div>
+
+                        <div class="form-group col-md-6 col-12">
+                            {{ form.tel_number.label }}
+                            <input class="form-control" name="{{ form.tel_number.html_name }}" id="tel-number" placeholder="Telefone Residencial" {{ form.tel_number }}
+                        </div>
+
+                        <div class="form-group col-md-12 col-12">
+                            {{ form.email_adress.label }}
+                            <input class="form-control" name="{{ form.email_adress.html_name }}" id="email-adress" placeholder="Endereço de e-mail" {{ form.email_adress }}
+                        </div>
+
+                        <div class="form-group col-md-6 col-12">
+                            {{ form.street_adress.label }}
+                            <input class="form-control" name="{{ form.street_adress.html_name }}" id="street-adress" placeholder="Endereço residencial" {{ form.street_adress }}
+                        </div>
+
+                        <div class="form-group col-md-3 col-12">
+                            {{ form.home_number.label }}
+                            <input class="form-control" name="{{ form.home_number.html_name }}" id="home-number" placeholder="Número" {{ form.home_number }}
+                        </div>
+
+                        <div class="form-group col-md-3 col-12">
+                            {{ form.complement.label }}
+                            <input class="form-control" name="{{ form.complement.html_name }}" id="complement" placeholder="Complemento" {{ form.complement }}
+                        </div>
+
+                        <div class="form-group col-md-4 col-12">
+                            {{ form.district.label }}
+                            <input class="form-control" name="{{ form.district.html_name }}" id="district" placeholder="Bairro" {{ form.district }}
+                        </div>
+
+                        <div class="form-group col-md-3 col-12">
+                            {{ form.cep.label }}
+                            <input class="form-control" name="{{ form.cep.html_name }}" id="cep" placeholder="CEP" {{ form.cep }}
+                        </div>
+
+                        <div class="form-group col-md-4 col-12">
+                            {{ form.city.label }}
+                            <input class="form-control" name="{{ form.city.html_name }}" id="city" placeholder="Cidade" {{ form.city }}
+                        </div>
+
+                        <div class="form-group col-md-1 col-12">
+                            {{ form.uf.label }}
+                            <input class="form-control" name="{{ form.uf.html_name }}" id="uf" placeholder="UF" {{ form.uf }}
+                        </div>
+
+                        <div class="col-12 d-flex justify-content-end mt-4">
+                            <button type="submit" id="register-doctor" class="btn icon icon-left btn-primary me-1 mb-1">Cadastrar médico(a)</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(
+        function(){
+            $("#cell-number").mask("(00) 00000-0000");
+            $("#tel-number").mask("(00) 0000-0000");
+            $("#cpf").mask("000.000.000-00");
+            $("#rg").mask("0.000.000");
+            $("#cep").mask("00000-000");
+            $("#issuing-agency").mask("SSS-SS");
+            $("#uf").mask("SS");
+        }
+    );
+</script>
+{% endblock middle-content %}

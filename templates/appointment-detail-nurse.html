@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block middle-content %}
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>CROSS</h3>
+                <p class="text-subtitle text-muted">Classificação de Risco Online em Sistemas de Saúde</p>
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Principal</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Cadastro de Pacientes</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <section class="section">
+        <div class="card p-2">
+            <div class="card-header mb-4">
+                <h4 class="card-title fs-3">Atendimento</h4>
+            </div>
+            <div class="card-body">
+                <p>Dados do paciente:</p>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-primary">Nome: {{ appointment_nurse.patient_name }}</li>
+                    <li class="list-group-item list-group-item-primary">CPF: {{ appointment_nurse.patient_name.cpf }}</li>
+                    <li class="list-group-item list-group-item-primary">Número para contato: {{ appointment_nurse.patient_name.cell_number }}</li>
+                    <li class="list-group-item list-group-item-primary">Data de nascimento: {{ appointment_nurse.patient_name.date_of_birth }}</li>
+                    {% if appointment_nurse.patient_name.mother_full_name is not blank %}
+                        <li class="list-group-item list-group-item-primary">Nome da mãe: {{ appointment_nurse.patient_name.mother_full_name }}</li>
+                    {% endif %}
+                    {% if appointment_nurse.patient_name.sus_id is not blank %}
+                        <li class="list-group-item list-group-item-primary">SUS: {{ appointment_nurse.patient_name.sus_id }}</li>
+                    {% endif %}
+                    {% if appointment_nurse.patient_name.health_insurance_id is blank %}
+                        <li class="list-group-item list-group-item-primary">Plano de saúde (Convênio): {{ appointment_nurse.patient_name.health_insurance_id }}</li>
+                    {% endif %}
+                </ul>
+                <br>
+                <p>Dados do(a) profissional</p>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-primary">Nome: {{ appointment_nurse.nurse_name }}</li>
+                    <li class="list-group-item list-group-item-primary">Coren: {{ appointment_nurse.nurse_name.coren }}</li>
+                </ul>
+                <br>
+                <p>Dados da consulta:</p>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-primary">Data e hora de chegada: {{ appointment_nurse.created_at }}</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock middle-content %}

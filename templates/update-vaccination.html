@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block middle-content %}
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>CROSS</h3>
+                <p class="text-subtitle text-muted">Classificação de Risco Online em Sistemas de Saúde</p>
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Principal</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Cadastrar Vacinação </li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <section id="multiple-column-form">
+        <div class="row match-height">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title fs-3">Cadastrar Vacinação</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <form method="POST" class="form">
+                                {% csrf_token %}
+                                <div class="row">
+
+                                    <div class="form-group col-md-6 col-12"> 
+                                        {{ form.patient_name.label }}
+                                        <select class="form-select" name="{{ form.patient_name.html_name }}" id="patient-name" {{ form.patient_name }}</select>
+                                    </div>
+
+                                    <div class="form-group col-md-4 col-12"> 
+                                        {{ form.immunobiological_type.label }}
+                                        <select class="form-select" name="{{ form.immunobiological_type.html_name }}" id="immunobiological_type" {{ form.immunobiological_type}}</select>
+                                    </div>
+
+                                    <div class="form-group col-md-6 col-12"> 
+                                        {{ form.nurse_name.label }}
+                                        <select class="form-select" name="{{ form.nurse_name.html_name }}" id="nurse_name" {{ form.nurse_name }}</select>
+                                    </div>
+
+
+                                    <div class="form-group col-md-4 col-12"> 
+                                        {{ form.dose.label }}
+                                        <select class="form-select" name="{{ form.dose.html_name }}" id="dose" {{ form.dose}}</select>
+                                    </div>
+
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group mb-4">
+                                            <label for="{{ form.maternal_condition.id }}">Condição Maternal</label>
+                                            <input class="form-control" id="inputMaternal_Condition" placeholder="Condição Maternal" {{ form.maternal_condition}}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-12">
+                                        <div class="form-group mb-4">
+                                            <label for="{{ form.dateofVaccination.id }}">Data de Aplicação</label>
+                                            <input class="form-control" id="inputDateofVaccination" placeholder="Data de Aplicação" {{ form.dateofVaccination}}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-10 col-12">
+                                        <div class="form-group mb-4">
+                                            <label for="{{ form.note.id }}">Observação</label>
+                                            <textarea class="form-control" name="{{ form.note.html_name }}" id="note" rows="3" {{ form.note }}</textarea>
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="col-12 d-flex justify-content-end">
+                                        <button type="submit" id="botao" class="btn icon icon-left btn-primary me-1 mb-1">Cadastrar Vacinação</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(
+        function(){
+            $("#inputDateofVaccination").mask("00/00/0000");
+        
+        }
+    );
+</script>
+{% endblock middle-content %}
